@@ -6,12 +6,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     initTheme();
     initScanlinesToggle();
-    initStickerWorkbench();
+    initCursorPicker();
     initProjectModals();
     initLightbox();
     initContactActions();
     initScrollSpy();
     initMobileNavigation();
+    initFeaturedWorkFilters();
     initStatsCounter();
     initLanguageToggle();
     initBtcSimulator();
@@ -37,6 +38,33 @@ function initMobileNavigation() {
     links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
     window.addEventListener('resize', () => {
         if (window.innerWidth > 768) setOpen(false);
+    });
+}
+
+/**
+ * Filter featured projects by the kind of work visitors want to explore.
+ */
+function initFeaturedWorkFilters() {
+    const filters = document.querySelectorAll('[data-project-filter]');
+    const projects = document.querySelectorAll('.project-card[data-category]');
+
+    if (!filters.length || !projects.length) return;
+
+    filters.forEach((button) => {
+        button.addEventListener('click', () => {
+            const selectedCategory = button.dataset.projectFilter;
+
+            filters.forEach((filter) => {
+                const isActive = filter === button;
+                filter.classList.toggle('is-active', isActive);
+                filter.setAttribute('aria-pressed', String(isActive));
+            });
+
+            projects.forEach((project) => {
+                const categories = project.dataset.category.split(/\s+/);
+                project.hidden = selectedCategory !== 'all' && !categories.includes(selectedCategory);
+            });
+        });
     });
 }
 
@@ -99,55 +127,82 @@ function initScanlinesToggle() {
 }
 
 /**
- * 🏷️ Interactive Sticker Workbench (Stikerpedia & Fazima Print tribute)
- * Lets users drag stickers anywhere on screen and place them
+ * Small, optional cursor image picker. The regular arrow is restored with Default.
  */
-function initStickerWorkbench() {
-    const clearBtn = document.getElementById('clear-stickers-btn');
-    const stickerTrays = document.querySelectorAll('.sticker-tray-item');
-    const playground = document.body;
+function initCursorPicker() {
+    const widget = document.getElementById('cursor-picker');
+    const panel = document.getElementById('cursor-picker-panel');
+    const toggle = document.getElementById('cursor-picker-toggle');
+    const close = document.getElementById('cursor-picker-close');
+    const cursorImage = document.getElementById('custom-cursor-image');
+    const options = document.querySelectorAll('.cursor-option');
+    const root = document.documentElement;
 
-    stickerTrays.forEach(item => {
-        item.addEventListener('click', (e) => {
-            const svgSrc = item.dataset.stickerSrc;
-            const title = item.dataset.stickerName || 'Sticker';
-            spawnStickerOnPage(svgSrc, title, e.clientX + 20, e.clientY + 20);
+    if (!widget || !panel || !toggle || !cursorImage) return;
+
+    let pointerPosition = null;
+
+    const setOpen = (isOpen) => {
+        panel.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', String(isOpen));
+    };
+
+    const applyCursor = (src) => {
+        if (src) {
+            root.classList.add('custom-cursor-active');
+            cursorImage.src = src;
+            cursorImage.hidden = false;
+            if (pointerPosition) {
+                cursorImage.style.left = `${pointerPosition.x}px`;
+                cursorImage.style.top = `${pointerPosition.y}px`;
+                cursorImage.classList.add('is-visible');
+            }
+        } else {
+            root.classList.remove('custom-cursor-active');
+            cursorImage.hidden = true;
+            cursorImage.classList.remove('is-visible');
+            cursorImage.removeAttribute('src');
+        }
+
+        options.forEach((option) => {
+            const selected = option.dataset.cursorSrc === src;
+            option.classList.toggle('is-selected', selected);
+            option.setAttribute('aria-pressed', String(selected));
+        });
+
+        if (src) localStorage.setItem('mkl_cursor', src);
+        else localStorage.removeItem('mkl_cursor');
+    };
+
+    toggle.addEventListener('click', () => setOpen(panel.hidden));
+    if (close) close.addEventListener('click', () => setOpen(false));
+
+    options.forEach((option) => {
+        option.addEventListener('click', () => {
+            applyCursor(option.dataset.cursorSrc || '');
+            setOpen(false);
         });
     });
 
-    if (clearBtn) {
-        clearBtn.addEventListener('click', () => {
-            document.querySelectorAll('.dropped-sticker').forEach(el => {
-                el.style.transform = 'scale(0) rotate(-45deg)';
-                setTimeout(() => el.remove(), 250);
-            });
-            if (window.soundEngine) window.soundEngine.playBump();
-        });
-    }
+    document.addEventListener('pointerdown', (event) => {
+        if (!widget.contains(event.target)) setOpen(false);
+    });
 
-    function spawnStickerOnPage(src, title, x, y) {
-        const sticker = document.createElement('div');
-        sticker.className = 'draggable-sticker dropped-sticker';
-        sticker.title = `${title} (Tarik ke mana saja!)`;
-        sticker.style.position = 'fixed';
-        sticker.style.left = `${Math.min(window.innerWidth - 100, Math.max(20, x))}px`;
-        sticker.style.top = `${Math.min(window.innerHeight - 100, Math.max(80, y))}px`;
-        sticker.style.zIndex = '999';
+    document.addEventListener('pointermove', (event) => {
+        if (event.pointerType !== 'mouse' && event.pointerType !== 'pen') return;
+        pointerPosition = { x: event.clientX, y: event.clientY };
+        if (!cursorImage.hidden) {
+            cursorImage.style.left = `${pointerPosition.x}px`;
+            cursorImage.style.top = `${pointerPosition.y}px`;
+            cursorImage.classList.add('is-visible');
+        }
+    }, { passive: true });
 
-        sticker.innerHTML = `
-            <img src="${src}" alt="${title}" class="sticker-img" />
-            <button class="sticker-remove-btn" title="Hapus sticker">×</button>
-        `;
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') setOpen(false);
+    });
 
-        sticker.querySelector('.sticker-remove-btn').addEventListener('click', (ev) => {
-            ev.stopPropagation();
-            sticker.remove();
-            if (window.soundEngine) window.soundEngine.playBlip();
-        });
-
-        playground.appendChild(sticker);
-        if (window.soundEngine) window.soundEngine.playCoin();
-    }
+    applyCursor(localStorage.getItem('mkl_cursor') || '');
 }
 
 /**
@@ -419,19 +474,21 @@ function initLanguageToggle() {
             'Understanding price trends, momentum, and market structure', 'Technical analysis using support, resistance, and indicators', 'Fundamental analysis of assets, sectors, and macro conditions', 'Risk management, scenarios, and probability-based decisions', 'Turning market data into clear, actionable insights'
         ]);
 
-        setText('.project-category', isIndonesian ? ['Bisnis Percetakan / Pengembangan Digital', 'Web3 / Blockchain / Riset Produk', 'Produk Digital / Otomasi Percetakan', 'Edukasi Kripto / Ekosistem Celo'] : ['Printing Business / Digital Development', 'Web3 / Blockchain / Product Research', 'Digital Product / Printing Automation', 'Crypto Education / Celo Ecosystem']);
-        setText('.project-badge', isIndonesian ? ['Aktif Produksi', 'Ekosistem Base', 'Tool Interaktif', 'Terdesentralisasi'] : ['Production Live', 'Base Ecosystem', 'Interactive Tool', 'Decentralized']);
-        setText('.project-title', ['Fazima Print', 'MiddleKid', 'Stickerpedia', 'NGL Paper']);
+        setText('.project-category', isIndonesian ? ['Bisnis Percetakan / Pengembangan Digital', 'Web3 / Blockchain / Riset Produk', 'Produk Digital / Otomasi Percetakan', 'Edukasi Kripto / Ekosistem Celo', 'Karya Tulis / Refleksi'] : ['Printing Business / Digital Development', 'Web3 / Blockchain / Product Research', 'Digital Product / Printing Automation', 'Crypto Education / Celo Ecosystem', 'Written Work / Reflection']);
+        setText('.project-badge', isIndonesian ? ['Aktif Produksi', 'Ekosistem Base', 'Tool Interaktif', 'Terdesentralisasi', '11 halaman'] : ['Production Live', 'Base Ecosystem', 'Interactive Tool', 'Decentralized', '11 pages']);
+        setText('.project-title', ['Fazima Print', 'MiddleKid', 'Stickerpedia', 'NGL Paper', 'Nothing']);
         setText('.project-desc', isIndonesian ? [
             'Pengembangan dan eksplorasi solusi digital untuk bisnis percetakan yang dinamis, termasuk website modern, dashboard pelacakan operasional, dan optimasi alur kerja percetakan.',
             'Eksplorasi onboarding Web3 dan keamanan transaksi untuk membantu pengguna memahami risiko sebelum menandatangani transaksi blockchain.',
             'Customizer web dan platform pemesanan otomatis untuk produksi stiker, yang menghubungkan aset vektor dengan harga real-time dan algoritma nesting lembar cetak.',
-            'Inisiatif edukasi kripto yang menyederhanakan whitepaper blockchain untuk pemula, dengan pengalaman pembayaran mikro di jaringan Celo.'
+            'Inisiatif edukasi kripto yang menyederhanakan whitepaper blockchain untuk pemula, dengan pengalaman pembayaran mikro di jaringan Celo.',
+            'Karya reflektif berbahasa Indonesia tentang makna hidup, ambisi, harapan, kegagalan, dan pencarian kebebasan melalui narasi serta refleksi pribadi.'
         ] : [
             'Development and exploration of digital solutions for a fast-paced printing business, including modern web presence, operational tracking dashboards, and printing workflow optimization.',
             'An in-depth exploration of Web3 user onboarding and transaction security, specifically designed to help users understand potential risks before signing blockchain transactions.',
             'An automated web customizer and ordering platform for sticker production, connecting visual vector assets with real-time pricing and automated print-sheet nesting algorithms.',
-            'Crypto educational initiative focused on deconstructing, translating, and synthesizing complex blockchain whitepapers for beginners, operating on the Celo network for near-zero transaction fees.'
+            'Crypto educational initiative focused on deconstructing, translating, and synthesizing complex blockchain whitepapers for beginners, operating on the Celo network for near-zero transaction fees.',
+            'An Indonesian reflective work exploring the meaning of life, ambition, hope, failure, and the search for freedom through short narratives and personal reflection.'
         ]);
         setHtml('.project-highlights li', isIndonesian ? [
             '<span class="bullet">▹</span> Pengembangan website dan katalog yang mudah digunakan', '<span class="bullet">▹</span> Eksplorasi dashboard untuk manajemen pekerjaan', '<span class="bullet">▹</span> Perencanaan alur produk cetak dan layout gang-run', '<span class="bullet">▹</span> Integrasi sistem operasional bisnis',
@@ -444,14 +501,12 @@ function initLanguageToggle() {
             '<span class="bullet">▹</span> Client-side interactive canvas customizer & live preview', '<span class="bullet">▹</span> Real-time millimetric dimension & price calculator', '<span class="bullet">▹</span> Automated layout algorithm to minimize vinyl printing waste', '<span class="bullet">▹</span> Direct print-ready SVG/PDF export pipelines',
             '<span class="bullet">▹</span> Synthesis and simplification of complex DeFi protocols', '<span class="bullet">▹</span> Mobile-first crypto micropayment onboarding on Celo', '<span class="bullet">▹</span> Educational research library for emerging Web3 users', '<span class="bullet">▹</span> Visual infographics translating crypto economics'
         ]);
-        setText('.btn-project-link span', isIndonesian ? ['Kunjungi Website', 'Buka MiddleKid', 'Kunjungi Stickerpedia', 'Kunjungi NGL Paper'] : ['Visit Live Website', 'Launch MiddleKid', 'Visit Stickerpedia', 'Visit NGL Paper']);
+        setText('.btn-project-link span', isIndonesian ? ['Kunjungi Website', 'Buka MiddleKid', 'Kunjungi Stickerpedia', 'Kunjungi NGL Paper', 'Baca Karya Tulis'] : ['Visit Live Website', 'Launch MiddleKid', 'Visit Stickerpedia', 'Visit NGL Paper', 'Read the writing']);
         setText('.btn-project-details', isIndonesian ? ['Lihat Studi Kasus', 'Lihat Studi Kasus', 'Lihat Studi Kasus', 'Lihat Studi Kasus'] : ['Inspect Case Study', 'Inspect Case Study', 'Inspect Case Study', 'Inspect Case Study']);
         setText('.channel-left > div > div:first-child', isIndonesian ? ['WhatsApp Langsung', 'Pertanyaan Email', 'GitHub', 'Aplikasi Web3 MiddleKid', 'Portal Fazima Print', 'Portal NGL Paper'] : ['WhatsApp Direct', 'Email Inquiries', 'GitHub', 'MiddleKid Web3 App', 'Fazima Print Portal', 'NGL Paper Portal']);
         setText('.modal-dialog h4', isIndonesian ? ['Sorotan Utama & Arsitektur:', 'Teknologi & Domain:'] : ['Key Highlights & Architecture:', 'Tech Stack & Domains:']);
         setText('#modal-project-link span', [choose('Visit Live Project', 'Kunjungi Proyek')]);
         setText('.footer-credits', [choose('Crafted with Swiss Editorial Precision & Pixel-Finance Nostalgia', 'Dibuat dengan presisi editorial Swiss dan nostalgia arcade pixel-finance')]);
-        setText('.sticker-dock-label strong', [choose('STICKER TRAY', 'TRAY STIKER')]);
-        setText('.sticker-dock-label span', [choose('Click & Drag', 'Klik & Tarik')]);
     }
 }
 

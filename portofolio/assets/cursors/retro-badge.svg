@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="32" height="32">
+  <defs>
+    <linearGradient id="badgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f0c3f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Starburst / Patch Shape -->
+  <path d="M 200 30 L 235 75 L 290 60 L 305 115 L 360 130 L 350 185 L 390 220 L 355 260 L 375 315 L 320 330 L 310 385 L 255 375 L 220 415 L 180 380 L 145 415 L 110 375 L 55 385 L 45 330 L -10 315 L 10 260 L -25 220 L 15 185 L 5 130 L 60 115 L 75 60 L 130 75 Z"
+        fill="#ffb703" stroke="#000000" stroke-width="6" transform="translate(18, 10) scale(0.9)"/>
+
+  <!-- Inner Circle -->
+  <circle cx="200" cy="200" r="145" fill="url(#badgeGrad)" stroke="#ffffff" stroke-width="7"/>
+  <circle cx="200" cy="200" r="135" fill="none" stroke="#00f0ff" stroke-width="3" stroke-dasharray="6,4"/>
+
+  <!-- Mountain / Orbit Graphic -->
+  <path d="M 90 250 L 160 160 L 220 220 L 260 175 L 310 250 Z" fill="#ff007f" opacity="0.8"/>
+  <path d="M 120 250 L 175 180 L 225 235 L 280 250 Z" fill="#7928ca"/>
+
+  <!-- Big Star / Sun -->
+  <circle cx="200" cy="125" r="30" fill="#ffea00"/>
+
+  <!-- Ribbon Banner -->
+  <path d="M 60 270 L 340 270 L 325 320 L 75 320 Z" fill="#00f0ff" stroke="#000000" stroke-width="4"/>
+  <text x="200" y="305" fill="#070526" font-family="'Orbitron', sans-serif" font-weight="900" font-size="22" text-anchor="middle" letter-spacing="3">STICKER CLUB</text>
+
+  <!-- Arc Top Text -->
+  <text x="200" y="85" fill="#ffffff" font-family="'Rubik', sans-serif" font-weight="700" font-size="14" text-anchor="middle" letter-spacing="3">ORIGINAL QUALITY • 100% VINYL</text>
+</svg>

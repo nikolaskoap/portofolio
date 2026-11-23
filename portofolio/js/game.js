@@ -784,6 +784,36 @@ class MarioPixelRunner {
             this.keys[e.key] = false;
         });
 
+        document.querySelectorAll('[data-runner-control]').forEach((button) => {
+            const control = button.dataset.runnerControl;
+            const release = (event) => {
+                event.preventDefault();
+                if (control !== 'jump') {
+                    this.keys[control] = false;
+                    button.classList.remove('is-pressed');
+                    button.setAttribute('aria-pressed', 'false');
+                }
+            };
+
+            button.addEventListener('pointerdown', (event) => {
+                event.preventDefault();
+                if (control === 'jump') {
+                    this.jump();
+                    return;
+                }
+
+                this.keys[control] = true;
+                button.classList.add('is-pressed');
+                button.setAttribute('aria-pressed', 'true');
+                if (button.setPointerCapture) button.setPointerCapture(event.pointerId);
+            });
+
+            button.addEventListener('pointerup', release);
+            button.addEventListener('pointercancel', release);
+            button.addEventListener('lostpointercapture', release);
+            button.addEventListener('contextmenu', (event) => event.preventDefault());
+        });
+
         // Loop
         const loop = () => {
             this.update();
@@ -793,6 +823,7 @@ class MarioPixelRunner {
     }
 
     jump() {
+        if (this.isJumping) return;
         this.isJumping = true;
         this.vy = -11;
         window.soundEngine.playJump();
