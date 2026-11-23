@@ -174,6 +174,7 @@ html.crt-active .crt-overlay {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 1.25rem;
     width: 100%;
 }
 
@@ -200,20 +201,30 @@ html.crt-active .crt-overlay {
     font-weight: 700;
     font-size: 1.05rem;
     letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.primary-navigation {
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 1.8rem;
+    justify-content: center;
+    gap: clamp(0.55rem, 1.5vw, 1.2rem);
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-link {
     text-decoration: none;
     color: var(--text-secondary);
-    font-size: 0.92rem;
+    font-size: clamp(0.72rem, 0.8vw, 0.88rem);
     font-weight: 500;
+    white-space: nowrap;
     transition: color var(--transition-fast);
     position: relative;
 }
@@ -226,7 +237,43 @@ html.crt-active .crt-overlay {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
+    flex: 0 0 auto;
+    gap: 0.35rem;
+}
+
+.github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.42rem 0.6rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.github-link:hover {
+    border-color: var(--text-primary);
+    background: var(--bg-card);
+    transform: translateY(-1px);
+}
+
+.mobile-nav-toggle {
+    display: none;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    border-radius: var(--radius-sm);
+    padding: 0.42rem 0.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 700;
 }
 
 .hud-pill {
@@ -712,6 +759,39 @@ html.crt-active .crt-overlay {
     pointer-events: none;
     z-index: 10000;
     animation: coinPop 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.bitcoin-pop {
+    width: 42px;
+    height: 52px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    font-family: var(--font-pixel);
+}
+
+.bitcoin-pop-coin {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    background: #F7931A;
+    color: #111;
+    border: 3px solid #111;
+    border-radius: 50%;
+    box-shadow: inset -3px -3px 0 #B86B00, inset 3px 3px 0 #FFD866, 3px 3px 0 rgba(0,0,0,0.35);
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.bitcoin-pop-label {
+    padding: 1px 4px;
+    background: #111;
+    color: #FFD866;
+    border: 1px solid #F7931A;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
 }
 
 @keyframes coinPop {
@@ -1753,15 +1833,19 @@ html.crt-active .crt-overlay {
     position: absolute;
     bottom: 28px;
     left: 0;
-    width: 32px;
-    height: 40px;
+    width: 50px;
+    height: 74px;
     transform-origin: bottom center;
     transition: transform 0.03s linear;
 }
 
-.mario-pixel-art {
-    width: 32px;
-    height: 40px;
+.runner-photo {
+    display: block;
+    width: 50px;
+    height: 74px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.35));
 }
 
 .stage-floating-blocks {
@@ -2025,6 +2109,21 @@ html.crt-active .crt-overlay {
    RESPONSIVE MEDIA QUERIES
    ========================================================================== */
 @media (max-width: 992px) {
+    .header-inner {
+        gap: 0.7rem;
+    }
+    .nav-links {
+        gap: 0.55rem;
+    }
+    .nav-link {
+        font-size: 0.7rem;
+    }
+    .github-link span {
+        display: none;
+    }
+    .btn-download-cv {
+        padding-inline: 0.55rem;
+    }
     .hero-grid {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -2055,12 +2154,61 @@ html.crt-active .crt-overlay {
 }
 
 @media (max-width: 768px) {
+    .site-header {
+        height: auto;
+        min-height: var(--header-height);
+    }
+    .header-inner {
+        position: relative;
+        min-height: var(--header-height);
+        flex-wrap: nowrap;
+    }
     .brand-text {
         font-size: 0.82rem;
-        white-space: nowrap;
+    }
+    .mobile-nav-toggle {
+        display: inline-flex;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    .primary-navigation {
+        display: none;
+        position: absolute;
+        top: calc(100% - 0.25rem);
+        left: 0;
+        right: 0;
+        padding: 0.65rem;
+        background: var(--bg-overlay);
+        border: 1px solid var(--border-subtle);
+        border-radius: 0 0 var(--radius-md) var(--radius-md);
+        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+        z-index: 10;
+    }
+    .primary-navigation.is-open {
+        display: block;
     }
     .nav-links {
-        display: none; /* Mobile Drawer / Compact */
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.35rem;
+    }
+    .nav-link {
+        display: block;
+        padding: 0.7rem 0.75rem;
+        border: 1px solid var(--border-subtle);
+        border-radius: var(--radius-sm);
+        font-size: 0.76rem;
+        background: var(--bg-card);
+    }
+    .header-actions {
+        gap: 0.25rem;
+    }
+    .header-actions .hud-pill,
+    .header-actions .btn-download-cv {
+        display: none;
+    }
+    .github-link {
+        padding: 0.45rem;
     }
     .hero-section {
         padding: 3.5rem 0 3rem;

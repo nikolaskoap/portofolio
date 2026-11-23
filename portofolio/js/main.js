@@ -11,10 +11,34 @@ document.addEventListener('DOMContentLoaded', () => {
     initLightbox();
     initContactActions();
     initScrollSpy();
+    initMobileNavigation();
     initStatsCounter();
     initLanguageToggle();
     initBtcSimulator();
 });
+
+/**
+ * Mobile navigation drawer
+ */
+function initMobileNavigation() {
+    const toggle = document.querySelector('.mobile-nav-toggle');
+    const navigation = document.getElementById('primary-navigation');
+    const links = navigation ? navigation.querySelectorAll('.nav-link') : [];
+
+    if (!toggle || !navigation) return;
+
+    const setOpen = (isOpen) => {
+        navigation.classList.toggle('is-open', isOpen);
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        document.body.classList.toggle('nav-open', isOpen);
+    };
+
+    toggle.addEventListener('click', () => setOpen(!navigation.classList.contains('is-open')));
+    links.forEach((link) => link.addEventListener('click', () => setOpen(false)));
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) setOpen(false);
+    });
+}
 
 /**
  * 🌓 Theme Engine (Dark / Light / System)
@@ -422,7 +446,7 @@ function initLanguageToggle() {
         ]);
         setText('.btn-project-link span', isIndonesian ? ['Kunjungi Website', 'Buka MiddleKid', 'Kunjungi Stickerpedia', 'Kunjungi NGL Paper'] : ['Visit Live Website', 'Launch MiddleKid', 'Visit Stickerpedia', 'Visit NGL Paper']);
         setText('.btn-project-details', isIndonesian ? ['Lihat Studi Kasus', 'Lihat Studi Kasus', 'Lihat Studi Kasus', 'Lihat Studi Kasus'] : ['Inspect Case Study', 'Inspect Case Study', 'Inspect Case Study', 'Inspect Case Study']);
-        setText('.channel-left > div > div:first-child', isIndonesian ? ['WhatsApp Langsung', 'Pertanyaan Email', 'Aplikasi Web3 MiddleKid', 'Portal Fazima Print', 'Portal NGL Paper'] : ['WhatsApp Direct', 'Email Inquiries', 'MiddleKid Web3 App', 'Fazima Print Portal', 'NGL Paper Portal']);
+        setText('.channel-left > div > div:first-child', isIndonesian ? ['WhatsApp Langsung', 'Pertanyaan Email', 'GitHub', 'Aplikasi Web3 MiddleKid', 'Portal Fazima Print', 'Portal NGL Paper'] : ['WhatsApp Direct', 'Email Inquiries', 'GitHub', 'MiddleKid Web3 App', 'Fazima Print Portal', 'NGL Paper Portal']);
         setText('.modal-dialog h4', isIndonesian ? ['Sorotan Utama & Arsitektur:', 'Teknologi & Domain:'] : ['Key Highlights & Architecture:', 'Tech Stack & Domains:']);
         setText('#modal-project-link span', [choose('Visit Live Project', 'Kunjungi Proyek')]);
         setText('.footer-credits', [choose('Crafted with Swiss Editorial Precision & Pixel-Finance Nostalgia', 'Dibuat dengan presisi editorial Swiss dan nostalgia arcade pixel-finance')]);

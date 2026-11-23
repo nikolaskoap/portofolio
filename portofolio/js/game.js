@@ -272,6 +272,7 @@ class CryptoGameManager {
         const satReward = Math.floor(Math.random() * 50) + 50;
         this.sats += satReward;
         this.coinsCollected++;
+        this.spawnBitcoinParticle(spawnX, spawnY);
 
         if (this.coinsCollected % 10 === 0) {
             this.level++;
@@ -292,8 +293,21 @@ class CryptoGameManager {
     }
 
     spawnCoinParticle(x, y) {
-        // Floating currency particles are intentionally disabled.
-        return { x, y };
+        this.spawnBitcoinParticle(x, y);
+    }
+
+    spawnBitcoinParticle(x, y) {
+        const coin = document.createElement('div');
+        coin.className = 'pixel-coin-particle bitcoin-pop';
+        coin.setAttribute('aria-label', 'Koin Bitcoin');
+        coin.innerHTML = `
+            <span class="bitcoin-pop-coin">₿</span>
+            <span class="bitcoin-pop-label">BTC</span>
+        `;
+        coin.style.left = `${x - 18}px`;
+        coin.style.top = `${y - 8}px`;
+        document.body.appendChild(coin);
+        setTimeout(() => coin.remove(), 900);
     }
 
     triggerLevelUp(x, y) {
@@ -808,7 +822,8 @@ class MarioPixelRunner {
         // Apply horizontal
         this.x += this.vx;
         if (this.x < 10) this.x = 10;
-        if (this.x > stageW - 40) this.x = stageW - 40;
+        const runnerWidth = this.runnerEl.offsetWidth || 50;
+        if (this.x > stageW - runnerWidth - 10) this.x = stageW - runnerWidth - 10;
 
         // Apply gravity
         if (this.isJumping || this.y > 0) {
