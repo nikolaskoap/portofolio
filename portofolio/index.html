@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Mikail Syafiq Ikhwanudin — Digital Creative & Technology Enthusiast</title>
+    <meta name="description" content="Portfolio of Mikail Syafiq Ikhwanudin — Digital Creative, Technology Enthusiast, and Product Explorer. Building ideas into digital experiences.">
+    <meta name="keywords" content="Mikail Syafiq Ikhwanudin, Portfolio, Web Development, Web3, Blockchain, Crypto, Graphic Design, Fazima Print, MiddleKid, Stikerpedia">
+    <meta name="author" content="Mikail Syafiq Ikhwanudin">
+
+    <!-- OpenGraph & Social Cards -->
+    <meta property="og:title" content="Mikail Syafiq Ikhwanudin — Portfolio">
+    <meta property="og:description" content="Building Ideas Into Digital Experiences. Minimalist Swiss Editorial x Pixel-Finance Arcade.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/projects/middlekid.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- CRT Scanlines Overlay -->
+    <div class="crt-overlay" aria-hidden="true"></div>
+
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress-bar">
+        <div id="scroll-progress-fill"></div>
+    </div>
+
+    <!-- Floating Draggable Coins Container -->
+    <!-- SITE HEADER -->
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#hero" class="site-brand">
+                <span class="brand-text">Mikail Syafiq Ikhwanudin</span>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#about" class="nav-link" data-en="About" data-id="Tentang">About</a></li>
+                    <li><a href="#expertise" class="nav-link" data-en="Expertise" data-id="Keahlian">Expertise</a></li>
+                    <li><a href="#works" class="nav-link" data-en="Selected Works" data-id="Karya Pilihan">Selected Works</a></li>
+                    <li><a href="#archive" class="nav-link" data-en="Market Game" data-id="Game Pasar">Market Game</a></li>
+                    <li><a href="#arcade" class="nav-link" data-en="Arcade Stage" data-id="Stage Arcade">Arcade Stage</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-id="Kontak">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Level HUD -->
+                <div class="hud-pill" title="Level Petualang Web3">
+                    <span>LVL <strong class="hud-lvl-val">1</strong></span>
+                </div>
+
+                <!-- Sound FX Toggle -->
+                <button id="sound-toggle-btn" class="hud-btn" title="Toggle 8-Bit Retro Sound (Web Audio Synthesizer)">
+                    <span class="sound-icon">🔊</span>
+                </button>
+
+                <!-- CRT Retro Scanlines Toggle -->
+                <button id="crt-toggle-btn" class="hud-btn" title="Toggle CRT Retro Arcade Filter">
+                    <span>CRT</span>
+                </button>
+
+                <!-- Dark / Light Theme Toggle -->
+                <button id="theme-toggle-btn" class="hud-btn" title="Toggle Dark / Light Mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+
+                <button id="language-toggle-btn" class="hud-btn language-toggle" type="button" aria-label="Switch language">
+                    ID
+                </button>
+
+                <!-- CV Download Button -->
+                <a href="assets/docs/CV_Mikail_Syafiq_Ikhwanudin.pdf" download="CV_Mikail_Syafiq_Ikhwanudin.pdf" class="btn-download-cv" title="Unduh Curriculum Vitae Lengkap">
+                    <span>CV</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- A. HERO SECTION -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="hero-meta">
+                    <span class="mono-label" data-en="SYSTEM // PROFILE 2026" data-id="SISTEM // PROFIL 2026">SYSTEM // PROFILE 2026</span>
+                        <div class="status-badge">
+                            <span class="status-dot"></span>
+                        <span data-en="Available for Web3 & Digital Exploration" data-id="Terbuka untuk Eksplorasi Web3 & Digital">Available for Web3 & Digital Exploration</span>
+                        </div>
+                    </div>
+
+                    <h1 class="hero-name-primary">
+                        MIKAIL SYAFIQ<br>
+                        <span class="name-accent">IKHWANUDIN</span>
+                    </h1>
+
+                    <h2 class="hero-tagline">
+                        <span data-en="Building Ideas Into" data-id="Mengubah Ide Menjadi">Building Ideas Into</span> <span class="highlight" data-en="Digital Experiences." data-id="Pengalaman Digital.">Digital Experiences.</span>
+                    </h2>
+
+                    <p class="hero-intro">
+                        Digital Creative &bull; Technology Enthusiast &bull; Product Explorer.<br>
+                        Exploring the intersection of design, digital products, and decentralized finance through research, creativity, and technology.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#works" class="btn-primary">
+                            <span data-en="Explore Selected Works" data-id="Lihat Karya Pilihan">Explore Selected Works</span>
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+
+                        <a href="assets/docs/CV_Mikail_Syafiq_Ikhwanudin.pdf" download="CV_Mikail_Syafiq_Ikhwanudin.pdf" class="btn-secondary">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            <span data-en="Download CV" data-id="Unduh CV">Download CV</span>
+                        </a>
+
+                        <a href="#about" class="btn-secondary">
+                            <span data-en="About Me" data-id="Tentang Saya">About Me</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- HERO PHOTO CARD (REPLACED FINANCE PLAYGROUND) -->
+                <div class="hero-photo-card">
+                    <div class="hero-photo-header">
+                        <span>PORTRAIT // MSI_2026</span>
+                        <span style="color:var(--accent-emerald);">● ACTIVE</span>
+                    </div>
+                    <div class="hero-photo-container">
+                        <img src="assets/designs/foto.png" alt="Mikail Syafiq Ikhwanudin" class="hero-photo-img">
+                    </div>
+                    <div class="hero-photo-footer">
+                        <span class="hero-photo-caption">Mikail Syafiq Ikhwanudin</span>
+                        <span class="hero-photo-badge">CREATIVE & TECH</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- B. ABOUT ME SECTION -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="mono-label section-label" data-en="01 // PHILOSOPHY & BACKGROUND" data-id="01 // FILOSOFI & LATAR BELAKANG">01 // PHILOSOPHY & BACKGROUND</span>
+                    <h2 class="section-title" data-en="A little about me." data-id="Sedikit tentang saya.">A little about me.</h2>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-narrative">
+                        <p class="lead">
+                            "I'm interested in the intersection of technology, creativity, and business."
+                        </p>
+                        <p>
+                            My journey started with <strong>Software Engineering education</strong> (Rekayasa Perangkat Lunak - SMK Muhammadiyah Kota Tasikmalaya) and gradually expanded into graphic design, website development, digital product exploration, and financial research.
+                        </p>
+                        <p>
+                            I enjoy understanding how things work, exploring new ideas, and turning concepts into practical solutions. Having worked directly on the factory floor of the <strong>commercial printing industry</strong> and completed professional internship at <strong>Xiaomi Service Center</strong>, I combine pragmatic operational discipline with cutting-edge digital craftsmanship.
+                        </p>
+                        <p>
+                            <em>"For me, learning is not just about acquiring knowledge. It's about applying it, experimenting, and creating something meaningful."</em>
+                        </p>
+                    </div>
+
+                    <div class="about-side">
+                        <!-- Stats Grid -->
+                        <div class="about-stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-num"><span class="stat-counter" data-target-val="3">0</span><span class="stat-plus">+</span></div>
+                                <div class="stat-label">Years of Multidisciplinary Digital Exploration</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-num"><span class="stat-counter" data-target-val="12">0</span><span class="stat-plus">+</span></div>
+                                <div class="stat-label">Web, Web3 & Printing Automation Projects</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-num"><span class="stat-counter" data-target-val="150">0</span><span class="stat-plus">+</span></div>
+                                <div class="stat-label">Commercial Print & Graphic Design Assets</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-num"><span class="stat-counter" data-target-val="100">0</span><span class="stat-plus">%</span></div>
+                                <div class="stat-label">Independent Curious Learner & Builder</div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Track Record -->
+                        <div class="experience-block">
+                            <div class="exp-header">Selected Experience & Roots</div>
+
+                            <div class="exp-item">
+                                <div class="exp-dot"></div>
+                                <div class="exp-info">
+                                    <div class="exp-title">Digital & Web3 Exploration</div>
+                                    <div class="exp-org">Independent Projects (MiddleKid, Fazima, NGL Paper) &bull; Ongoing</div>
+                                    <div class="exp-desc">Designing decentralized interfaces, researching blockchain security vulnerabilities, and creating automated digital products.</div>
+                                </div>
+                            </div>
+
+                            <div class="exp-item">
+                                <div class="exp-dot"></div>
+                                <div class="exp-info">
+                                    <div class="exp-title">Graphic Designer — Printing Industry</div>
+                                    <div class="exp-org">Commercial Printing Production &bull; &plusmn; 6 Months</div>
+                                    <div class="exp-desc">End-to-end prepress visual design, vector layouting, color calibration, customer technical consultations, and print file optimization.</div>
+                                </div>
+                            </div>
+
+                            <div class="exp-item">
+                                <div class="exp-dot"></div>
+                                <div class="exp-info">
+                                    <div class="exp-title">Technical Support & Hardware Diagnostics</div>
+                                    <div class="exp-org">Xiaomi Service Center (PT Unicom Harbura Jaya Makmur) &bull; &plusmn; 4 Months</div>
+                                    <div class="exp-desc">Device disassembly, strict SOP repairs, inventory stock opname, spare-part cataloging, and technician hardware workflow support.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- C. EXPERTISE SECTION (5 CATEGORIES) -->
+        <section id="expertise" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="mono-label section-label" data-en="02 // CAPABILITIES" data-id="02 // KEMAMPUAN">02 // CAPABILITIES</span>
+                    <h2 class="section-title" data-en="Multidisciplinary Expertise" data-id="Keahlian Multidisipliner">Multidisciplinary Expertise</h2>
+                    <p class="section-subtitle" data-en="A balanced fusion of visual aesthetics, engineering logic, financial market intelligence, and product thinking." data-id="Perpaduan antara estetika visual, logika engineering, kecerdasan pasar keuangan, dan pemikiran produk.">A balanced fusion of visual aesthetics, engineering logic, financial market intelligence, and product thinking.</p>
+                </div>
+
+                <div class="expertise-grid">
+                    <!-- 1. Graphic Design & Visual Communication -->
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 01 ]</span>
+                        <h3 class="expertise-title">Graphic Design & Visual Communication</h3>
+                        <ul class="expertise-list">
+                            <li>Promotional design & marketing collaterals</li>
+                            <li>Banner, billboard, and commercial print design</li>
+                            <li>Brand visual identity & typography systems</li>
+                            <li>Product mockups & presentation packaging</li>
+                            <li>Digital raster & vector image editing</li>
+                        </ul>
+                    </div>
+
+                    <!-- 2. Website & Digital Development -->
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 02 ]</span>
+                        <h3 class="expertise-title">Website & Digital Development</h3>
+                        <ul class="expertise-list">
+                            <li>HTML5 & modern CSS semantic architectures</li>
+                            <li>Responsive website engineering</li>
+                            <li>UI/UX interface prototyping & ergonomics</li>
+                            <li>Operational dashboard & analytics concepts</li>
+                            <li>Web3 frontend & decentralized API exploration</li>
+                        </ul>
+                    </div>
+
+                    <!-- 3. Digital Marketing & Content -->
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 03 ]</span>
+                        <h3 class="expertise-title">Digital Marketing & Content</h3>
+                        <ul class="expertise-list">
+                            <li>Persuasive copywriting & editorial drafting</li>
+                            <li>Social media strategy & engaging visual content</li>
+                            <li>Content scheduling & multi-channel planning</li>
+                            <li>Product launch promotion campaigns</li>
+                            <li>Digital trend synthesis & audience research</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4. Financial & Market Research -->
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 04 ]</span>
+                        <h3 class="expertise-title">Financial & Market Research</h3>
+                        <ul class="expertise-list">
+                            <li>Cryptocurrency on-chain & tokenomics research</li>
+                            <li>Stock market valuation & technical analysis</li>
+                            <li>Fundamental asset research & reporting</li>
+                            <li>Market trend cycles & macro analysis</li>
+                            <li>Quantitative strategy & algorithmic experiments</li>
+                        </ul>
+                    </div>
+
+                    <!-- 5. Business & Project Development -->
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 05 ]</span>
+                        <h3 class="expertise-title">Business & Project Development</h3>
+                        <ul class="expertise-list">
+                            <li>Digital product feasibility research</li>
+                            <li>Business model & pricing exploration</li>
+                            <li>End-to-end project planning & milestone scoping</li>
+                            <li>Workflow automation & operational optimization</li>
+                            <li>Digital venture development & prototyping</li>
+                        </ul>
+                    </div>
+
+                    <div class="expertise-card">
+                        <span class="expertise-num">[ 06 ]</span>
+                        <h3 class="expertise-title" data-en="Market Analysis" data-id="Analisis Pasar">Market Analysis</h3>
+                        <ul class="expertise-list">
+                            <li data-en="Understanding price trends, momentum, and market structure" data-id="Memahami tren harga, momentum, dan struktur pasar">Understanding price trends, momentum, and market structure</li>
+                            <li data-en="Technical analysis using support, resistance, and indicators" data-id="Analisis teknikal dengan support, resistance, dan indikator">Technical analysis using support, resistance, and indicators</li>
+                            <li data-en="Fundamental analysis of assets, sectors, and macro conditions" data-id="Analisis fundamental aset, sektor, dan kondisi makro">Fundamental analysis of assets, sectors, and macro conditions</li>
+                            <li data-en="Risk management, scenarios, and probability-based decisions" data-id="Manajemen risiko, skenario, dan keputusan berbasis probabilitas">Risk management, scenarios, and probability-based decisions</li>
+                            <li data-en="Turning market data into clear, actionable insights" data-id="Mengubah data pasar menjadi insight yang jelas dan dapat ditindaklanjuti">Turning market data into clear, actionable insights</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- D. SELECTED WORKS SECTION (THE CORE SHOWCASE) -->
+        <section id="works" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="mono-label section-label" data-en="03 // SELECTED WORKS" data-id="03 // KARYA PILIHAN">03 // SELECTED WORKS</span>
+                    <h2 class="section-title" data-en="Featured Projects" data-id="Proyek Unggulan">Featured Projects</h2>
+                    <p class="section-subtitle" data-en="Real-world applications, digital platforms, and Web3 experiments developed with high craft and precision." data-id="Aplikasi nyata, platform digital, dan eksperimen Web3 yang dikembangkan dengan ketelitian dan kualitas tinggi.">Real-world applications, digital platforms, and Web3 experiments developed with high craft and precision.</p>
+                </div>
+
+                <div class="projects-list">
+                    <!-- Project 01: FAZIMA PRINT -->
+                    <div class="project-card">
+                        <div class="project-visual">
+                            <img src="assets/designs/fazimaprint.jpg" alt="Fazima Print Logo & Branding" class="project-img" style="max-height: 220px; object-fit: contain; border-radius: var(--radius-sm); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.08));">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <div class="project-header-top">
+                                    <span class="project-category">Printing Business / Digital Development</span>
+                                    <span class="project-badge">Production Live</span>
+                                </div>
+                                <h3 class="project-title">Fazima Print</h3>
+                                <p class="project-desc">
+                                    Development and exploration of digital solutions for a fast-paced printing business, including modern web presence, operational tracking dashboards, and printing workflow optimization.
+                                </p>
+                                <ul class="project-highlights">
+                                    <li><span class="bullet">▹</span> Website development and user-friendly catalog showcase</li>
+                                    <li><span class="bullet">▹</span> Dashboard interface exploration for job management</li>
+                                    <li><span class="bullet">▹</span> Printing product workflow and gang-run layout planning</li>
+                                    <li><span class="bullet">▹</span> Business operational system integration</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://fazimaprint.com/" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                                    <span>Visit Live Website</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <button class="btn-project-details" data-open-project="fazima">
+                                    Inspect Case Study
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 02: MIDDLEKID -->
+                    <div class="project-card reversed">
+                        <div class="project-visual" style="background: #0D1117;">
+                            <img src="assets/projects/middlekid.png" alt="MiddleKid Web3 Security Platform Preview" class="project-img">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <div class="project-header-top">
+                                    <span class="project-category">Web3 / Blockchain / Product Research</span>
+                                    <span class="project-badge" style="color:#5871FF; border-color:#5871FF;">Base Ecosystem</span>
+                                </div>
+                                <h3 class="project-title">MiddleKid</h3>
+                                <p class="project-desc">
+                                    An in-depth exploration of Web3 user onboarding and transaction security, specifically designed to help users understand potential risks before signing blockchain transactions.
+                                </p>
+                                <ul class="project-highlights">
+                                    <li><span class="bullet">▹</span> Web3 product development with responsive UI</li>
+                                    <li><span class="bullet">▹</span> Blockchain security research and signature simulation</li>
+                                    <li><span class="bullet">▹</span> Smart contract risk analyzer concepts</li>
+                                    <li><span class="bullet">▹</span> User experience exploration built on the Base ecosystem</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://middlekid.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                                    <span>Launch MiddleKid</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <button class="btn-project-details" data-open-project="middlekid">
+                                    Inspect Case Study
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 03: STICKERPEDIA -->
+                    <div class="project-card">
+                        <div class="project-visual" style="background: #FFFBF0;">
+                            <img src="assets/stickers/sample-cybercat.svg" alt="Stickerpedia SVG Customizer Asset" class="project-img" style="max-height:220px;">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <div class="project-header-top">
+                                    <span class="project-category">Digital Product / Printing Automation</span>
+                                    <span class="project-badge">Interactive Tool</span>
+                                </div>
+                                <h3 class="project-title">Stickerpedia</h3>
+                                <p class="project-desc">
+                                    An automated web customizer and ordering platform for sticker production, connecting visual vector assets with real-time pricing and automated print-sheet nesting algorithms.
+                                </p>
+                                <ul class="project-highlights">
+                                    <li><span class="bullet">▹</span> Client-side interactive canvas customizer & live preview</li>
+                                    <li><span class="bullet">▹</span> Real-time millimetric dimension & price calculator</li>
+                                    <li><span class="bullet">▹</span> Automated layout algorithm to minimize vinyl printing waste</li>
+                                    <li><span class="bullet">▹</span> Direct print-ready SVG/PDF export pipelines</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://stikerpedia.fazimaprint.com/" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                                    <span>Visit Stickerpedia</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <button class="btn-project-details" data-open-project="stickerpedia">
+                                    Inspect Case Study
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 04: NGL PAPER (CRYPTO EDUCATION) -->
+                    <div class="project-card reversed">
+                        <div class="project-visual" style="background: #111;">
+                            <img src="assets/designs/NGLPAPER.png" alt="NGL Paper Crypto Research Graphic" class="project-img" style="max-height: 240px; object-fit: contain; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));">
+                        </div>
+                        <div class="project-info">
+                            <div>
+                                <div class="project-header-top">
+                                    <span class="project-category">Crypto Education / Celo Ecosystem</span>
+                                    <span class="project-badge" style="color:#00D26A; border-color:#00D26A;">Decentralized</span>
+                                </div>
+                                <h3 class="project-title">NGL Paper</h3>
+                                <p class="project-desc">
+                                    Crypto educational initiative focused on deconstructing, translating, and synthesizing complex blockchain whitepapers for beginners, operating on the Celo network for near-zero transaction fees.
+                                </p>
+                                <ul class="project-highlights">
+                                    <li><span class="bullet">▹</span> Synthesis and simplification of complex DeFi protocols</li>
+                                    <li><span class="bullet">▹</span> Mobile-first crypto micropayment onboarding on Celo</li>
+                                    <li><span class="bullet">▹</span> Quantitative market research and risk awareness manuals</li>
+                                    <li><span class="bullet">▹</span> Visual infographics translating crypto economics</li>
+                                </ul>
+                            </div>
+                            <div class="project-actions">
+                                <a href="https://ngl-paper.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-project-link">
+                                    <span>Visit NGL Paper</span>
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                </a>
+                                <button class="btn-project-details" data-open-project="nglpaper">
+                                    Inspect Case Study
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BTC LONG / SHORT SIMULATION -->
+        <section id="archive" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="mono-label section-label" data-en="04 // MARKET SIMULATION" data-id="04 // SIMULASI PASAR">04 // MARKET SIMULATION</span>
+                    <h2 class="section-title" data-en="BTC Long / Short Game" data-id="Game Long / Short BTC">BTC Long / Short Game</h2>
+                    <p class="section-subtitle" data-en="A lightweight BTC chart simulator. Choose a position and see the result after 10 seconds." data-id="Simulasi chart BTC sederhana. Pilih posisi dan lihat hasilnya setelah 10 detik.">A lightweight BTC chart simulator. Choose a position and see the result after 10 seconds.</p>
+                </div>
+                <div class="btc-simulator" id="btc-simulator" aria-label="BTC long short trading simulation">
+                    <div class="btc-simulator-topline">
+                        <span class="btc-price-label">BTC/USD <strong id="btc-current-price">$68,420</strong></span>
+                        <span class="btc-timer" id="btc-timer" aria-live="polite">00:10</span>
+                    </div>
+                    <div class="btc-game-layout">
+                        <div class="btc-chart-wrap">
+                            <svg id="btc-chart" viewBox="0 0 900 300" role="img" aria-label="Simulated BTC candlestick chart">
+                                <title>Simulated BTC candlestick chart</title>
+                                <desc>Candlestick chart bergerak secara acak untuk simulasi posisi long dan short.</desc>
+                                <g class="btc-grid-lines"></g>
+                                <g id="btc-candles"></g>
+                                <g id="btc-entry-marker" class="btc-entry-marker" hidden>
+                                    <line id="btc-entry-line" x1="0" y1="18" x2="0" y2="282"></line>
+                                    <circle id="btc-entry-dot" cx="0" cy="0" r="5"></circle>
+                                    <text id="btc-entry-label" x="0" y="30" text-anchor="middle">ENTRY</text>
+                                </g>
+                            </svg>
+                        </div>
+                        <aside class="btc-score-panel" aria-live="polite">
+                            <div class="btc-score-item"><span data-en="POINTS" data-id="POIN">POINTS</span><strong id="btc-score">0</strong></div>
+                            <div class="btc-score-item"><span data-en="LEVEL" data-id="LEVEL">LEVEL</span><strong id="btc-level">1</strong><small>/ 5</small></div>
+                            <div class="btc-level-track"><span id="btc-level-progress"></span></div>
+                            <p id="btc-score-message" data-en="Win a round to earn +25 points." data-id="Menang satu ronde untuk mendapatkan +25 poin.">Win a round to earn +25 points.</p>
+                            <div id="btc-claim-box" class="btc-claim-box" hidden>
+                                <strong data-en="Level 5 unlocked!" data-id="Level 5 terbuka!">Level 5 unlocked!</strong>
+                                <span data-en="Claim your simulated reward:" data-id="Klaim reward simulasi melalui:">Claim your simulated reward:</span>
+                                <a id="btc-claim-whatsapp" href="https://wa.me/6289604101860?text=Halo%20Mikail,%20saya%20sudah%20mencapai%20Level%205%20di%20BTC%20Simulator." target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                                <a id="btc-claim-email" href="mailto:mikailsyafiq81@gmail.com?subject=BTC%20Simulator%20Level%205">Email</a>
+                            </div>
+                        </aside>
+                    </div>
+                    <div class="btc-simulator-controls">
+                        <button type="button" class="btn-primary btc-position-btn" data-position="long" data-en="LONG BTC" data-id="LONG BTC">LONG BTC</button>
+                        <button type="button" class="btn-secondary btc-position-btn" data-position="short" data-en="SHORT BTC" data-id="SHORT BTC">SHORT BTC</button>
+                        <button type="button" class="btn-secondary" id="btc-reset-btn" data-en="Reset Game" data-id="Reset Game">Reset Game</button>
+                    </div>
+                    <p class="btc-position-status" id="btc-position-status" aria-live="polite" data-en="Choose LONG or SHORT to start the 10-second simulation." data-id="Pilih LONG atau SHORT untuk memulai simulasi 10 detik.">Choose LONG or SHORT to start the 10-second simulation.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAYABLE MARIO RUNNER MINI-STAGE -->
+        <section id="arcade" class="arcade-runner-section">
+            <div class="container">
+                <div class="section-header" style="margin-bottom: 1.5rem;">
+                    <span class="mono-label section-label" data-en="05 // PLAYABLE RETRO STAGE" data-id="05 // STAGE RETRO INTERAKTIF">05 // PLAYABLE RETRO STAGE</span>
+                    <h3 style="font-size:1.6rem; font-weight:800; letter-spacing:-0.02em;" data-en="Mikail The Crypto Runner" data-id="Mikail The Crypto Runner">Mikail The Crypto Runner</h3>
+                    <p style="font-size:0.9rem; color:var(--text-secondary);" data-en="Use the keyboard to move the character and jump into question blocks!" data-id="Gunakan keyboard untuk menggerakkan karakter dan lompat ke blok tanda tanya!">Use the keyboard to move the character and jump into question blocks!</p>
+                </div>
+
+                <div id="mario-arcade-stage" class="arcade-stage-wrapper">
+                    <!-- Controls guide -->
+                    <div class="arcade-controls-guide">
+                        <span data-en="Move:" data-id="Gerak:">Move:</span> <kbd class="key-badge">←</kbd> <kbd class="key-badge">→</kbd> <span data-en="or" data-id="atau">or</span> <kbd class="key-badge">A</kbd> <kbd class="key-badge">D</kbd>
+                        <span data-en="Jump:" data-id="Lompat:">Jump:</span> <kbd class="key-badge">Space</kbd> / <kbd class="key-badge">W</kbd> / <kbd class="key-badge">↑</kbd>
+                    </div>
+
+                    <!-- Floating Blocks on Stage -->
+                    <div class="stage-floating-blocks">
+                        <div class="pixel-q-block" style="width:48px; height:48px;"></div>
+                        <div class="pixel-brick-block" style="width:48px; height:48px;">
+                            <div class="brick-line"></div>
+                            <div class="brick-line"></div>
+                        </div>
+                        <div class="pixel-q-block" style="width:48px; height:48px;"></div>
+                    </div>
+
+                    <!-- Mario Runner Avatar -->
+                    <div id="mario-runner-char">
+                        <!-- Pixel SVG Mario/Mikail Runner Art -->
+                        <svg class="mario-pixel-art" viewBox="0 0 16 16">
+                            <!-- Cap & Hat -->
+                            <rect x="5" y="1" width="6" height="2" fill="#E52521"/>
+                            <rect x="4" y="2" width="9" height="1" fill="#E52521"/>
+                            <!-- Face -->
+                            <rect x="4" y="3" width="7" height="3" fill="#FFCC99"/>
+                            <rect x="9" y="4" width="2" height="1" fill="#000"/>
+                            <!-- Mustache & Hair -->
+                            <rect x="3" y="3" width="2" height="3" fill="#6A3805"/>
+                            <rect x="7" y="5" width="4" height="1" fill="#6A3805"/>
+                            <!-- Shirt -->
+                            <rect x="4" y="6" width="8" height="4" fill="#E52521"/>
+                            <!-- Overalls Blue -->
+                            <rect x="5" y="8" width="6" height="5" fill="#0026FF"/>
+                            <rect x="5" y="8" width="2" height="2" fill="#FBD000"/>
+                            <rect x="9" y="8" width="2" height="2" fill="#FBD000"/>
+                            <!-- Shoes -->
+                            <rect x="3" y="13" width="4" height="2" fill="#6A3805"/>
+                            <rect x="9" y="13" width="4" height="2" fill="#6A3805"/>
+                        </svg>
+                    </div>
+
+                    <!-- Ground -->
+                    <div class="arcade-ground"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+            <div class="container">
+                <div class="contact-card">
+                    <div class="contact-left">
+                        <span class="mono-label" style="margin-bottom:0.8rem;" data-en="GET IN TOUCH" data-id="HUBUNGI SAYA">GET IN TOUCH</span>
+                        <h2 class="contact-headline" data-en="Let's create something meaningful together." data-id="Mari menciptakan sesuatu yang bermakna bersama.">Let's create something meaningful together.</h2>
+                        <p class="contact-subtext" data-en="Interested in collaborating on websites, Web3 exploration, crypto research, print automation, or visual design? Get in touch anytime." data-id="Tertarik berkolaborasi untuk proyek website, eksplorasi Web3, riset kripto, otomasi percetakan, atau desain visual? Hubungi saya kapan saja.">
+                            Interested in collaborating on websites, Web3 exploration, crypto research, print automation, or visual design? Get in touch anytime.
+                        </p>
+                        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                            <a href="assets/docs/CV_Mikail_Syafiq_Ikhwanudin.pdf" download="CV_Mikail_Syafiq_Ikhwanudin.pdf" class="btn-primary">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span data-en="Download CV [PDF]" data-id="Unduh CV [PDF]">Download CV [PDF]</span>
+                            </a>
+                        <button class="btn-secondary" data-copy-text="mikailsyafiq81@gmail.com">
+                                <span data-en="Copy Email Address" data-id="Salin Alamat Email">Copy Email Address</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="contact-channels">
+                        <!-- Channel 1: WhatsApp -->
+                        <a href="https://wa.me/6289604101860" target="_blank" rel="noopener noreferrer" class="channel-btn">
+                            <div class="channel-left">
+                                <span style="font-size:1.3rem;">💬</span>
+                                <div>
+                                    <div style="font-weight:700;">WhatsApp Direct</div>
+                                    <div style="font-size:0.75rem; color:var(--text-secondary); font-family:var(--font-mono);">+62 896-0410-1860</div>
+                                </div>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <!-- Channel 2: Email -->
+                        <a href="mailto:mikailsyafiq81@gmail.com" class="channel-btn">
+                            <div class="channel-left">
+                                <span style="font-size:1.3rem;">✉️</span>
+                                <div>
+                                    <div style="font-weight:700;">Email Inquiries</div>
+                                    <div style="font-size:0.75rem; color:var(--text-secondary); font-family:var(--font-mono);">mikailsyafiq81@gmail.com</div>
+                                </div>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <!-- Channel 3: MiddleKid Web3 -->
+                        <a href="https://middlekid.vercel.app" target="_blank" rel="noopener noreferrer" class="channel-btn">
+                            <div class="channel-left">
+                                <span style="font-size:1.3rem;">🌐</span>
+                                <div>
+                                    <div style="font-weight:700;">MiddleKid Web3 App</div>
+                                    <div style="font-size:0.75rem; color:var(--text-secondary); font-family:var(--font-mono);">middlekid.vercel.app</div>
+                                </div>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <!-- Channel 4: Fazima Print -->
+                        <a href="https://fazimaprint.com/" target="_blank" rel="noopener noreferrer" class="channel-btn">
+                            <div class="channel-left">
+                                <span style="font-size:1.3rem;">🖨️</span>
+                                <div>
+                                    <div style="font-weight:700;">Fazima Print Portal</div>
+                                    <div style="font-size:0.75rem; color:var(--text-secondary); font-family:var(--font-mono);">fazimaprint.com</div>
+                                </div>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+
+                        <!-- Channel 5: NGL Paper -->
+                        <a href="https://ngl-paper.vercel.app/" target="_blank" rel="noopener noreferrer" class="channel-btn">
+                            <div class="channel-left">
+                                <span style="font-size:1.3rem;">📄</span>
+                                <div>
+                                    <div style="font-weight:700;">NGL Paper Portal</div>
+                                    <div style="font-size:0.75rem; color:var(--text-secondary); font-family:var(--font-mono);">ngl-paper.vercel.app</div>
+                                </div>
+                            </div>
+                            <span class="channel-arrow">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div>
+                &copy; 2026 <strong>Mikail Syafiq Ikhwanudin</strong> &bull; All Rights Reserved.
+            </div>
+            <div class="footer-credits">
+                Crafted with Swiss Editorial Precision & Pixel-Finance Nostalgia
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+       STICKER WORKBENCH TRAY (BOTTOM DOCK)
+       ========================================================================== -->
+    <div class="sticker-dock">
+        <div class="sticker-dock-label">
+            <strong>STICKER TRAY</strong>
+            <span>Klik & Tarik</span>
+        </div>
+        <div class="sticker-items-wrap">
+            <div class="sticker-tray-item" data-sticker-src="assets/stickers/sample-astronaut.svg" data-sticker-name="Astronaut" title="Tambah Stiker Astronaut">
+                <img src="assets/stickers/sample-astronaut.svg" alt="Astronaut">
+            </div>
+            <div class="sticker-tray-item" data-sticker-src="assets/stickers/sample-cybercat.svg" data-sticker-name="Cyber Cat" title="Tambah Stiker Cybercat">
+                <img src="assets/stickers/sample-cybercat.svg" alt="Cybercat">
+            </div>
+            <div class="sticker-tray-item" data-sticker-src="assets/stickers/sample-pop-coffee.svg" data-sticker-name="Pop Coffee" title="Tambah Stiker Coffee">
+                <img src="assets/stickers/sample-pop-coffee.svg" alt="Coffee">
+            </div>
+            <div class="sticker-tray-item" data-sticker-src="assets/stickers/sample-retro-badge.svg" data-sticker-name="Retro Badge" title="Tambah Stiker Badge">
+                <img src="assets/stickers/sample-retro-badge.svg" alt="Badge">
+            </div>
+        </div>
+        <button id="clear-stickers-btn" class="btn-clear-stickers" title="Hapus semua stiker yang ditempel">Reset</button>
+    </div>
+
+    <!-- ==========================================================================
+       PROJECT DETAIL MODAL (CASE STUDY INSPECTION)
+       ========================================================================== -->
+    <div id="project-detail-modal" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog">
+            <button class="modal-close-btn" aria-label="Close dialog">&times;</button>
+            <div class="modal-header-meta">
+                <span id="modal-project-category" class="mono-label">CATEGORY</span>
+                <span id="modal-project-badge" class="project-badge">BADGE</span>
+            </div>
+            <h3 id="modal-project-title" style="font-size:2rem; font-weight:800; letter-spacing:-0.03em;">Project Title</h3>
+            <img id="modal-project-img" src="" alt="" class="modal-image-preview">
+            <p id="modal-project-desc" style="font-size:1.05rem; color:var(--text-secondary); line-height:1.65;"></p>
+            
+            <h4 style="font-size:1rem; font-weight:700; margin: 1.5rem 0 0.8rem;">Key Highlights & Architecture:</h4>
+            <ul id="modal-project-highlights" style="list-style:none; display:flex; flex-direction:column; gap:0.6rem; font-size:0.92rem; color:var(--text-secondary);"></ul>
+
+            <h4 style="font-size:1rem; font-weight:700; margin: 1.5rem 0 0.5rem;">Tech Stack & Domains:</h4>
+            <div id="modal-project-stack" class="modal-stack-tags"></div>
+
+            <div style="margin-top:2rem; display:flex; gap:1rem;">
+                <a id="modal-project-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary">
+                    <span>Visit Live Project</span>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       IMAGE LIGHTBOX MODAL
+       ========================================================================== -->
+    <div id="image-lightbox-modal" class="modal-overlay">
+        <div class="modal-backdrop"></div>
+        <div class="modal-dialog lightbox-dialog">
+            <button class="modal-close-btn lightbox-close" style="top:0; right:0; background:#FFF;" aria-label="Close lightbox">&times;</button>
+            <img src="" alt="" class="lightbox-image">
+            <div class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
