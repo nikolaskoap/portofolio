@@ -16,7 +16,40 @@ document.addEventListener('DOMContentLoaded', () => {
     initStatsCounter();
     initLanguageToggle();
     initBtcSimulator();
+    initMusicWidget();
 });
+
+/**
+ * Spotify Playlist Widget (Beside Date of Birth in Hero)
+ * Playlist: https://open.spotify.com/playlist/0EJToLC3spWKF4anaWndJL
+ */
+function initMusicWidget() {
+    const toggle = document.getElementById('hero-spotify-toggle');
+    const card = document.getElementById('hero-spotify-card');
+    const closeBtn = document.getElementById('hero-spotify-close');
+    const arrow = document.getElementById('hero-spotify-arrow');
+
+    if (!toggle || !card) return;
+
+    const setOpen = (isOpen) => {
+        card.hidden = !isOpen;
+        toggle.setAttribute('aria-expanded', String(isOpen));
+        if (arrow) arrow.textContent = isOpen ? '▲' : '▼';
+    };
+
+    toggle.addEventListener('click', () => setOpen(card.hidden));
+    if (closeBtn) closeBtn.addEventListener('click', () => setOpen(false));
+
+    document.addEventListener('pointerdown', (event) => {
+        if (!card.hidden && !card.contains(event.target) && !toggle.contains(event.target)) {
+            setOpen(false);
+        }
+    });
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && !card.hidden) setOpen(false);
+    });
+}
 
 /**
  * Mobile navigation drawer
